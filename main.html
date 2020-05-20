@@ -1,0 +1,147 @@
+<!doctype html>
+<style>
+form {
+    /* margin: auto; */
+    width: 35%;
+}
+
+.result {
+    /* margin: auto; */
+    width: 35%;
+    border: 5px solid #ccc;
+}
+</style>
+
+<head>
+    <title>Insurance Price Model</title>
+</head>
+
+<form action="{{ url_for('main') }}" method="POST">
+    <fieldset>
+        <legend>Input values:</legend>
+        The exposure, in years:
+        <input name="Exposure" type="text" required>
+        <br>
+        <br>
+		The driving licence age, in months:
+        <input name="LicAge" type="text" required>
+        <br>
+        <br>
+		Beginning date of record:
+		<input name="RecordBeg" type="text" required>
+        <br>
+        <br>
+        End date of record:
+        <input name="RecordEnd" type="text" required>
+        <br>
+        <br>
+		The vehicle age, in years:
+		<input name="VehAge" type="text" required>
+        <br>
+        <br>
+		The gender, either "Male" or "Female":
+		<input name="Gender" type="text" required>
+        <br>
+        <br>
+        The marital status, either "Alone" or "Other":
+        <input name="MariStat" type="text" required>
+        <br>
+        <br>
+		The social category:
+		<input name="SocioCateg" type="text" required>
+		<br>
+        <br>
+		The vehicle usage purpose:
+		<input name="VehUsage" type="text" required>
+		<br>
+        <br>
+        The driver age, in years:
+        <input name="DrivAge" type="text" required>
+        <br>
+        <br>
+		A numeric, 1 if there is a km limit for the policy, 0 otherwise:
+		<input name="HasKmLimit" type="text" required>
+        <br>
+        <br>
+		A numeric for the bonus/malus, between 50 and 350:
+		<input name="BonusMalus" type="text" required>
+        <br>
+        <br>
+        The vehicle body:
+        <input name="VehBody" type="text" required>
+        <br>
+        <br>
+		The vehicle price:
+		<input name="VehPrice" type="text" required>
+        <br>
+        <br>
+		The vehicle engine:
+		<input name="VehEngine" type="text" required>
+        <br>
+        <br>
+        The vehicle energy ("diesel", "eletric", "GPL", "regular"):
+        <input name="VehEnergy" type="text" required>
+        <br>
+        <br>
+		The vehicle mass speed:
+		<input name="VehMaxSpeed" type="text" required>
+        <br>
+        <br>
+		The vehicle class:
+		<input name="VehClass" type="text" required>
+        <br>
+        <br>
+        The risk variable:
+		<input name="RiskVar" type="text" required>
+        <br>
+        <br>
+		The garage, if any, among "Collective garage", "None", "Private garage":
+		<input name="Garage" type="text" required>
+        <br>
+        <br>
+		Claim indicator of the guarantee:
+		<input name="ClaimInd" type="text" required>
+        <br>
+        <br>
+		The dataset:
+		<input name="Dataset" type="text" required>
+        <br>
+        <br>
+        The number of policy years :
+        <input name="DeducType" type="text" required>
+        <br>
+        <br>
+		Number of responsible claims in the 4 preceding years:
+		<input name="ClaimNbResp" type="text" required>
+        <br>
+        <br>
+		Number of non-responsible claims in the 4 preceding years:
+		<input name="ClaimNbNonResp" type="text" required>
+        <br>
+        <br>
+        Number of parking claims in the 4 preceding years:
+        <input name="ClaimNbParking" type="text" required>
+        <br>
+        <br>
+		Number of claims in the 4 preceding years:
+		<input name="ClaimNbWindscreen" type="text" required>
+        <br>
+        <br>
+		Number of out-of-use in the 4 preceding years:
+		<input name="OutUseNb" type="text" required>	
+        <br>
+        <br>
+		The risk area:
+		<input name="RiskArea" type="text" required>			
+        <br>
+        <br>
+        <input type="submit">
+    </fieldset>
+</form>
+
+<div class="result" align="center">
+    {% if result %}
+    	<br> <p style="font-size:50px">Your salary:</p>
+   		<p style="font-size:50px">{{ result }}</p>
+    {% endif %}
+</div>
